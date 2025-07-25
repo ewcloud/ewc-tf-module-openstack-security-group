@@ -1,23 +1,23 @@
 ---
-# GitLab CI configuration for validating Terraform module
-# Created: April 14, 2025
+include:
+  - project: '$MIRROR_PATH/to-be-continuous/semantic-release'
+    ref: '3.14.3'
+    file: '/templates/gitlab-ci-semrel.yml'
 
 stages:
   - validate
   - test
   - security
+  - release
 
 variables:
-  TERRAFORM_VERSION: "1.5.7"
-  TFLINT_VERSION: "0.47.0"
-  TFSEC_VERSION: "1.28.1"
-  
-# Use HashiCorp's official Terraform image
-image: "hashicorp/terraform:${TERRAFORM_VERSION}"
+  SEMREL_VERSION: 24.2.5
+  SEMREL_CHANGELOG_ENABLED: "true"
 
 # Basic validation job using Terraform's built-in fmt and validate commands
 terraform:validate:
   stage: validate
+  image: "hashicorp/terraform:1.5.7"
   script:
     - echo "Checking Terraform formatting..."
     - terraform fmt -diff -check -recursive
@@ -32,7 +32,7 @@ terraform:validate:
 # Linting with TFLint
 terraform:lint:
   stage: validate
-  image: ghcr.io/terraform-linters/tflint:v${TFLINT_VERSION}
+  image: ghcr.io/terraform-linters/tflint:v0.47.0
   script:
     - echo "Running TFLint..."
     - tflint --init
@@ -43,7 +43,7 @@ terraform:lint:
 # Security scanning with tfsec
 terraform:security:
   stage: security
-  image: aquasec/tfsec:v${TFSEC_VERSION}
+  image: aquasec/tfsec:v1.28.1
   script:
     - echo "Running tfsec security scanner..."
     - tfsec . --format=json | tee tfsec_report.xml
@@ -83,3 +83,15 @@ terraform:example-test:
     - ewc
   allow_failure: true  # Make this optional in case examples directory doesn't exist yet
   when: manual       # Run only when manually triggered
+
+# Automated CHANGELOG.md generation from Conventional Commits history and git tag for release
+semantic-release:
+  stage: release
+  rules:
+    - if: $CI_COMMIT_TAG || $CI_COMMIT_TITLE =~ /^chore.*/
+      when: never
+    - if: '$CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE != "merge_request_event"'
+      changes:
+        - "**/*.yml"
+  tags:
+    - ewc
