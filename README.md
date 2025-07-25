@@ -4,8 +4,6 @@
 
 This Terraform module creates and configures an OpenStack Security Group with a user-defined set of rules. It is designed to be reusable, flexible, and aligned with Terraform best practices for OpenStack deployments. 
 
-
-
 More specifically, the module:
 * Creates an OpenStack Security Group with customizable name and description.
 * Attaches an arbitrary number of user-defined rules to the security group.
@@ -15,20 +13,12 @@ More specifically, the module:
 
 See the [LICENSE](./LICENSE) file for licensing information as it pertains to files in this repository.
 
-## Requirements
-
-| Name | Version |
-|------|---------|
-| terraform | >= 0.14.0 |
-| openstack | ~> 1.53.0 |
-
 ## Authentication
 
 Before proceeding, if you lack OpenStack Application Credentials or do not know
 how to make them available to Ansible in your development environment, make sure
 to check out the 
 [EWC documentation](https://confluence.ecmwf.int/display/EWCLOUDKB/EWC+-+How+to+request+Openstack+Application+Credentials).
-
 
 ## Usage
 
@@ -153,7 +143,12 @@ module "ldap_security_group" {
 }
 ```
 
+## Requirements
 
+| Name | Version |
+|------|---------|
+| terraform | >= 0.14.0 |
+| openstack | ~> 1.53.0 |
 
 ## Inputs
 
@@ -216,4 +211,3 @@ or submit changes.
 
 [European Weather Cloud](http://support.europeanweather.cloud/) 
 <[support@europeanweather.cloud](mailto:support@europeanweather.cloud)>
-
