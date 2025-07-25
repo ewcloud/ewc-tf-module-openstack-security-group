@@ -146,9 +146,9 @@ module "ldap_security_group" {
   ]
 
   tags = {
-    environment = "production"
-    project     = "ewc"
-    owner       = "team-alpha"
+    environment       = "production"
+    project           = "ewc"
+    provisioning-tool = "terraform"
   }
 }
 ```
@@ -190,13 +190,10 @@ This module supports tagging of the security group using the `tags` variable. Ta
 Example:
 
 ```hcl
-tags = {
-  environment = "production"
-  project     = "hosted-processing-european-weather-cloud"
-}
+
 ```
 
-The above results in the security group being tagged with `environment=production` and `project=hosted-processing-european-weather-cloud`.
+The above results in the security group being tagged with `environment=production`, `project=ewc` and `provisioning-tool=terraform`.
 
 ## Changelog
 All notable changes (i.e. fixes, features and breaking changes) are documented 
