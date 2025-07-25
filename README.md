@@ -190,7 +190,11 @@ This module supports tagging of the security group using the `tags` variable. Ta
 Example:
 
 ```hcl
-
+tags = {
+  environment       = "production"
+  project           = "ewc"
+  provisioning-tool = "terraform"
+}
 ```
 
 The above results in the security group being tagged with `environment=production`, `project=ewc` and `provisioning-tool=terraform`.
