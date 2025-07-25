@@ -13,11 +13,16 @@ it easier to get your contribution accepted.
 
 ### Contribution Flow
 
+>💡 The private upstream of this repository uses [GitLab CI](.gitlab-ci.yml) 
+for automation. Changes merged into the main branch trigger the creation of 
+new tag and auto-generated [CHANGELOG.md](./CHANGELOG.md) updates.
+
 On the contributors' side:
 1. Create a topic branch from the main brach to base your work on.
 2. Make commits of logical units (checkout 
 [commit guidelines](#commit-guidelines) below).
-3. Push changes to a topic branch in your fork of the repository.
+3. Push changes to a topic branch in your GitHub fork of this
+repository.
 4. Make sure to validate changes by running tests on a 
 EWC environment.
 5. Submit a pull request to this repository, including details on
@@ -27,14 +32,15 @@ review/approval.
 On the maintainers' side:
 
 1. Review, validate/test internally, and provide feedback prior to porting the
-changes into a topic branch in the private upstream of this GitHub repository.
-2. Upon approval, squash changes in the upstream, making sure to write a 
-conventional commit message in said squashing operation and including full 
-acknowledgement of the contributors (i.e. list their GitHub handles) in the 
-body of the commit message.
-3. Update the [CHANGELOG.md](./CHANGELOG.md), create a git tag in the main branch
-and verify it is mirrored in GitHub.
-4. Mark the relevant GitHub issue as resolved.
+changes into a topic branch in the private GitLab project upstream.
+2. Upon approval, squash-merge changes in the upstream, making sure to write a 
+conventional commit message title during said squashing operation and
+including full acknowledgement of the contributors (i.e. list their GitHub handles)
+in the commit body.
+3. Verify the CI automation updates the [CHANGELOG.md](./CHANGELOG.md) and
+creates a new `git tag` on the main branch.
+4. Verify the latest changes are mirrored downstream and mark the relevant GitHub
+issue as resolved.
 
 ### Commit Guidelines
 
