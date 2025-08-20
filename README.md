@@ -98,14 +98,6 @@ module "ldap_security_group" {
       direction        = "ingress"
       ether_type       = "IPv4"
       protocol         = "tcp"
-      port_range_min   = 749
-      port_range_max   = 749
-      remote_ip_prefix = "0.0.0.0/0"
-    },
-    {
-      direction        = "ingress"
-      ether_type       = "IPv4"
-      protocol         = "tcp"
       port_range_min   = 22
       port_range_max   = 22
       remote_ip_prefix = "0.0.0.0/0"
