@@ -32,10 +32,10 @@ to check out the
 ## Usage
 
 ```hcl
-module "ldap_security_group" {
+module "ipa_security_group" {
   source = "/path/to/terraform/module"
 
-  security_group_name = "ldap"
+  security_group_name = "ipa"
 
   security_group_rules = [
     {
@@ -148,7 +148,7 @@ module "ldap_security_group" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| `security_group_name` | Name of the security group. Example: `ldap` | `string` | n/a | yes |
+| `security_group_name` | Name of the security group. Example: `ipa` | `string` | n/a | yes |
 | `security_group_description` | Description of the security group | `string` | n/a | no |
 | `security_group_rules` | List of security group rules | `list(object({direction = string, ether_type = string, protocol = string, port_range_min = number, port_range_max = number, remote_ip_prefix = string}))` | `[]` | no |
 | `tags` | Map of tags to assign to the security group | `map(string)` | `{}` | no |
