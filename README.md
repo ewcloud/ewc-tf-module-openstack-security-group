@@ -44,7 +44,7 @@ module "ipa_security_group" {
       protocol         = "tcp"
       port_range_min   = 80
       port_range_max   = 80
-      remote_ip_prefix = "0.0.0.0/0"
+      remote_ip_prefix = "10.0.0.0/0"
     },
     {
       direction        = "ingress"
@@ -52,7 +52,7 @@ module "ipa_security_group" {
       protocol         = "udp"
       port_range_min   = 123
       port_range_max   = 123
-      remote_ip_prefix = "0.0.0.0/0"
+      remote_ip_prefix = "10.0.0.0/0"
     },
     {
       direction        = "ingress"
@@ -60,7 +60,7 @@ module "ipa_security_group" {
       protocol         = "tcp"
       port_range_min   = 88
       port_range_max   = 88
-      remote_ip_prefix = "0.0.0.0/0"
+      remote_ip_prefix = "10.0.0.0/0"
     },
     {
       direction        = "ingress"
@@ -68,7 +68,7 @@ module "ipa_security_group" {
       protocol         = "udp"
       port_range_min   = 88
       port_range_max   = 88
-      remote_ip_prefix = "0.0.0.0/0"
+      remote_ip_prefix = "10.0.0.0/0"
     },
     {
       direction        = "ingress"
@@ -76,7 +76,7 @@ module "ipa_security_group" {
       protocol         = "tcp"
       port_range_min   = 53
       port_range_max   = 53
-      remote_ip_prefix = "0.0.0.0/0"
+      remote_ip_prefix = "10.0.0.0/0"
     },
     {
       direction        = "ingress"
@@ -84,7 +84,7 @@ module "ipa_security_group" {
       protocol         = "udp"
       port_range_min   = 53
       port_range_max   = 53
-      remote_ip_prefix = "0.0.0.0/0"
+      remote_ip_prefix = "10.0.0.0/0"
     },
     {
       direction        = "ingress"
@@ -92,7 +92,7 @@ module "ipa_security_group" {
       protocol         = "tcp"
       port_range_min   = 389
       port_range_max   = 389
-      remote_ip_prefix = "0.0.0.0/0"
+      remote_ip_prefix = "10.0.0.0/0"
     },
     {
       direction        = "ingress"
@@ -108,7 +108,7 @@ module "ipa_security_group" {
       protocol         = "tcp"
       port_range_min   = 636
       port_range_max   = 636
-      remote_ip_prefix = "0.0.0.0/0"
+      remote_ip_prefix = "10.0.0.0/0"
     },
     {
       direction        = "ingress"
@@ -116,7 +116,7 @@ module "ipa_security_group" {
       protocol         = "tcp"
       port_range_min   = 464
       port_range_max   = 464
-      remote_ip_prefix = "0.0.0.0/0"
+      remote_ip_prefix = "10.0.0.0/0"
     },
     {
       direction        = "ingress"
@@ -124,7 +124,7 @@ module "ipa_security_group" {
       protocol         = "udp"
       port_range_min   = 464
       port_range_max   = 464
-      remote_ip_prefix = "0.0.0.0/0"
+      remote_ip_prefix = "10.0.0.0/0"
     },
     {
       direction        = "ingress"
@@ -132,7 +132,7 @@ module "ipa_security_group" {
       protocol         = "tcp"
       port_range_min   = 443
       port_range_max   = 443
-      remote_ip_prefix = "0.0.0.0/0"
+      remote_ip_prefix = "10.0.0.0/0"
     }
   ]
 
@@ -150,7 +150,7 @@ module "ipa_security_group" {
 |------|-------------|------|---------|:--------:|
 | `security_group_name` | Name of the security group. Example: `ipa` | `string` | n/a | yes |
 | `security_group_description` | Description of the security group | `string` | n/a | no |
-| `security_group_rules` | List of security group rules | `list(object({direction = string, ether_type = string, protocol = string, port_range_min = number, port_range_max = number, remote_ip_prefix = string}))` | `[]` | no |
+| `security_group_rules` | List of security group rules | `list(object({direction = string, ether_type = string, protocol = string, port_range_min = number, port_range_max = number, remote_ip_prefix = string}))` | n/a | yes |
 | `tags` | Map of tags to assign to the security group | `map(string)` | `{}` | no |
 
 ### Security Group Rules Input Structure
@@ -162,7 +162,7 @@ Each rule in the `security_group_rules` list is an object with the following att
 - `protocol`: The protocol (e.g., `tcp`, `udp`, `icmp`, or `null` for any).
 - `port_range_min`: The minimum port number (1-65535, or `null` for protocols like `icmp`).
 - `port_range_max`: The maximum port number (1-65535, or `null` for protocols like `icmp`).
-- `remote_ip_prefix`: The remote IP prefix in CIDR notation (e.g., `0.0.0.0/0`).
+- `remote_ip_prefix`: The remote IP prefix in CIDR notation (e.g., `10.0.0.0/0`).
 
 ## SW Bill of Materials (SBoM)
 Third-party components used in the working environment.
