@@ -23,7 +23,6 @@ variable "security_group_rules" {
     port_range_max   = number
     remote_ip_prefix = string
   }))
-  default = []
 }
 
 variable "tags" {
