@@ -91,8 +91,8 @@ module "postgres_security_group" {
 | `security_group_name` | Name of the security group. Required with `security_group_rules`; defaults to the `predefined_security_group` name otherwise. Example: `ipa` | `string` | `null` | no |
 | `security_group_description` | Description of the security group | `string` | `null` | no |
 | `security_group_rules` | List of security group rules for a custom security group. Mutually exclusive with `predefined_security_group` | `list(object({direction = string, ether_type = string, protocol = string, port_range_min = number, port_range_max = number, remote_ip_prefix = string}))` | `null` | no |
-| `predefined_security_group` | Name of a predefined security group to create, one of `ssh`, `ssh-https`, `ssh-http-https`, `nginx-proxy-manager`, `eumetcast`, `ipa`, `htcondor`. Mutually exclusive with `security_group_rules` | `string` | `null` | no |
-| `federee` | EWC federee hosting the deployment, `EUMETSAT` or `ECMWF`. Selects the private subnet CIDR of the `nginx-proxy-manager` and `ipa` predefined security groups | `string` | `"EUMETSAT"` | no |
+| `predefined_security_group` | Name of a predefined security group to create, one of the available[predefined security groups](#predefined-security-groups). Mutually exclusive with `security_group_rules` | `string` | `null` | no |
+| `federee` | EWC federee hosting the deployment, `EUMETSAT` or `ECMWF`. When applicable, defines the private subnet IP range for a predefined security groups | `string` | `"EUMETSAT"` | no |
 | `tags` | Map of tags to assign to the security group | `map(string)` | `{}` | no |
 
 
