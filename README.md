@@ -105,8 +105,8 @@ module "postgres_security_group" {
 | Name | Rules (protocol/port from source) |
 |------|-----------------------------------|
 | `ssh` | tcp/22 ingress from `0.0.0.0/0` |
-| `ssh-https` | tcp/22, tcp/443 ingress from `0.0.0.0/0` |
-| `ssh-http-https` | tcp/22, tcp/80, tcp/443 ingress from `0.0.0.0/0` |
+| `ssh-https` | tcp/22, tcp/80, tcp/443 ingress from `0.0.0.0/0` (same as `ssh-http-https`, useful for EWC site harmonization) |
+| `ssh-http-https` | tcp/22, tcp/80, tcp/443 ingress from `0.0.0.0/0` (same as `ssh-https`, useful for EWC site harmonization) |
 | `nginx-proxy-manager` | tcp/443 (HTTPS), tcp/80 (HTTP), tcp/22 (SSH), tcp/8200 (NPM admin frontend) ingress from the `<private subnet>` IP range (automatically set according to `federee`) |
 | `eumetcast` | udp/2268, tcp/8500 ingress from `0.0.0.0/0` |
 | `ipa` | tcp/22 (SSH) from `0.0.0.0/0`; tcp/443 (HTTPS), tcp/80 (HTTP), tcp/389 (LDAP), tcp/636 (LDAPS), tcp+udp/88 (Kerberos auth), tcp+udp/464 (Kerberos password change), tcp+udp/53 (DNS), udp/123 (NTP) ingress from `<private subnet>` (automatically set according to `federee`) |

@@ -7,7 +7,7 @@ locals {
     ECMWF    = "192.168.1.0/24"
   }[var.federee]
 
-  # Common security groups
+  # Common predefined security groups
   predefined_security_groups = {
     ssh = [
       { protocol = "tcp", port = 22, remote_ip_prefix = local.any_ipv4 },
