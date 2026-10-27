@@ -1,20 +1,24 @@
 # OpenStack Security Group Terraform Module
 
-This Terraform module creates and configures an OpenStack Security Group with either a custom-defined or common predefined set of rules. It is designed to be reusable, flexible, and aligned with Terraform best practices for OpenStack deployments.
+This Terraform module creates and configures an OpenStack Security Group with either common predefined or custom-defined set of rules. It is designed to be reusable, flexible, and aligned with Terraform best practices for OpenStack deployments.
 
-More specifically, the module:
+## Features
+
 * Creates an OpenStack Security Group with customizable name and description.
-* Attaches an arbitrary number of user-defined rules to the security group, or
-the rules of one of the [predefined EWC security groups](#predefined-security-groups),
-adapted to the federee (EUMETSAT or ECMWF) hosting the deployment.
+* Attaches an arbitrary number of
+rules from:
+  * one of the [predefined security groups](#predefined-security-groups)
+
+    **OR**
+  * custom-defined rules, to said security group
 
 
 ## Authentication
 
 Before proceeding, if you lack OpenStack Application Credentials or do not know
-how to make them available to Ansible in your development environment, make sure
-to check out the
-[EWC documentation](https://confluence.ecmwf.int/display/EWCLOUDKB/EWC+-+How+to+request+Openstack+Application+Credentials).
+how to make them available in your local environment, make sure
+to check out the 
+[EWC documentation](https://confluence.ecmwf.int/x/TiRNH).
 
 ## Usage
 
