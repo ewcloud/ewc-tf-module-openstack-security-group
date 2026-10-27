@@ -3,6 +3,13 @@
 All notable changes to this project are documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/ewcloud/ewc-tf-module-openstack-security-group/compare/1.0.1...1.1.0) (2026-10-27)
+
+
+### Features
+
+* Simplify deployment of common predefined sec groups ([#4](https://github.com/ewcloud/ewc-tf-module-openstack-security-group/issues/4)) ([c6c183b](https://github.com/ewcloud/ewc-tf-module-openstack-security-group/commit/c6c183b88223b35cfedb1041cff871298a864233))
+
 ## [1.0.1](https://github.com/ewcloud/ewc-tf-module-openstack-security-group/compare/1.0.0...1.0.1) (2025-09-19)
 
 
